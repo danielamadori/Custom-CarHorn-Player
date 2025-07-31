@@ -3,6 +3,7 @@
 #pragma once
 
 #include "Melody.hpp"
+#include "NonBlockingRtttl.h"
 
 #define MELODY_NUMBER 9
 
@@ -19,7 +20,9 @@ public:
 
 	short preview(unsigned short actionNumber);
 
-	Melody *getMelody(unsigned short i);
+        Melody *getMelody(unsigned short i);
+
+        void playRtttl(const char *song);
 };
 
 extern Player player;
