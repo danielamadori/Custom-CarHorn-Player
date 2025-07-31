@@ -53,13 +53,8 @@ bool Menu::choose(void){
 	if(actionNumberSelector == MELODY_NUMBER)//If horn is selected
 		return false;
 
-	short result = player.preview(actionNumberSelector);
-	
-	if(result == 1)//if the value is changed again
-		return true;
-
-	if(result == 0) //Confirm Choose (Melody, Clacson)
-		actionNumberSelected = actionNumberSelector;
+        player.getMelody(actionNumberSelector)->preview();
+        actionNumberSelected = actionNumberSelector;
 
 	return false;
 }
