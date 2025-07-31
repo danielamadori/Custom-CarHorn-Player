@@ -5,13 +5,15 @@
 #include "Notes.hpp"
 #include "Encoder.hpp"
 #include "HornButton.hpp"
+#include "lib/NonBlockingRTTTL/NonBlockingRtttl.h"
 
 #define HORN 19
 #define BUZZER 16
 
 class Melody{
-	unsigned short length, totalDuration;
-	unsigned short *notes, *notesDuration;
+        unsigned short length, totalDuration;
+        unsigned short *notes, *notesDuration;
+        String rtttl;
 	
 	String name;
 
