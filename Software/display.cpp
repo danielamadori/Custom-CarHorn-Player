@@ -14,8 +14,10 @@ void Display::write(unsigned short digit) {
 }
 
 void Display::loading(unsigned short repetNumber){
-	if(--repetNumber > 0)
-		loading(repetNumber);
+        if (repetNumber == 0)
+                return;
+        --repetNumber;
+        loading(repetNumber);
 
 	//TODO
 	//Serpentina iniziale
