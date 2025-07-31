@@ -1,4 +1,7 @@
 #include "Player.hpp"
+#include "NonBlockingRtttl.h"
+
+const char *rtttlDemo = "tetris:d=4,o=5,b=160:e6,8b,8c6,8d6,16e6,16d6,8c6,8b,a,8a,8c6,e6,8d6,8c6,b,8b,8c6,d6,e6,c6,a,2a";
 
 //Clacson Corriera
 unsigned short melody0[4] = {NOTE_G5, NOTE_F5, NOTE_E5, NOTE_F5};
@@ -158,14 +161,21 @@ void Player::play(unsigned short actionNumber){
 }
 
 short Player::preview(unsigned short actionNumber){
-	return melodies[actionNumber % MELODY_NUMBER]->preview(pauseBetweenNotes);
+        return melodies[actionNumber % MELODY_NUMBER]->preview(pauseBetweenNotes);
 }
 
 Melody* Player::getMelody(unsigned short i){
 	if(i >= MELODY_NUMBER)
 		i = MELODY_NUMBER-1;
 	
-	return melodies[i];
+        return melodies[i];
+}
+
+void Player::playRtttl(const char *song){
+        rtttl::begin(HORN, song);
+        while(!rtttl::done()){
+                rtttl::play();
+        }
 }
 
 void Player::setup(void){
