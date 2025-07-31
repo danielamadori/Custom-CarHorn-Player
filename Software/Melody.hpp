@@ -2,26 +2,22 @@
 #define MELODY_H
 #pragma once
 
-#include "Notes.hpp"
-#include "Encoder.hpp"
-#include "HornButton.hpp"
+#include "lib/rtttl/rtttl.h"
 
 #define HORN 19
 #define BUZZER 16
 
 class Melody{
-	unsigned short length, totalDuration;
-	unsigned short *notes, *notesDuration;
-	
-	String name;
+        const char *score;
+        String name;
 
 public:
 
-	Melody(String name, unsigned short totalDuration, unsigned short length, unsigned short* notes, unsigned short* notesDuration);
-	
-	void play(unsigned short pauseBetweenNotes);
+        Melody(String name, const char *score);
 
-	short preview(unsigned short pauseBetweenNotes);
+        void play(void);
+
+        void preview(void);
 
 	String getName(void);
 

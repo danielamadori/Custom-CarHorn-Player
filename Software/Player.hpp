@@ -4,12 +4,10 @@
 
 #include "Melody.hpp"
 
-#define MELODY_NUMBER 9
+#define MELODY_NUMBER 1
 
 class Player{
-	unsigned short pauseBetweenNotes = 1.30;
-
-	Melody *melodies[MELODY_NUMBER];
+       Melody *melodies[MELODY_NUMBER];
 
 public:
 
@@ -17,9 +15,7 @@ public:
 
 	void play(unsigned short actionNumber);
 
-	short preview(unsigned short actionNumber);
-
-	Melody *getMelody(unsigned short i);
+       Melody *getMelody(unsigned short i);
 };
 
 extern Player player;
